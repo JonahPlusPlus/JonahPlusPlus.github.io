@@ -36,3 +36,14 @@ To render the texture, I tried using a custom mesh, that was 6 quads in a row (s
 I would then get a camera to render the shaded mesh to a texture, which could then be displayed on the skybox mesh.
 This proved convoluted; it required a bunch of setup and guarantees and in order to render it only when the material changed required a special render pipeline for this one object.
 I decided to look for another solution.
+
+{% include image.html image='/assets/images/2022-08-20/mapping-faces.png' caption='Figure 5: the process of mapping ray directions to the mesh from inside the compute shader' %}
+
+I thought about it and landed on **compute shaders**.
+With a compute shader, there aren't any cameras or meshes.
+Instead, I can just operate on the texture itself in parallel.
+So I went to work on converting my vertex/fragment shader duo to a compute shader.
+Before, my shader was run for every pixel on the screen inside the fragment.
+But now, there isn't this "dynamic resolution", instead, I have to provide a texture with a set size.
+I decided to just go with a (512 * 6)px by 512px texture.
+To render each pixel, I could use compute workgroups and just set the number to the resolution divided by the workgroup size (number: (X: 512/8, Y: 512/8, Z: 1), size: (8, 8, 1)) and render all 6 faces at once inside a work instance by using the instance ID + offset as the pixel location (note: while writing this, I realized that I could instead use the Z component to control the face and run (512/8, 512/8, 6), making the shader even more parallel! But it only sped it up by ~10μs… Better than nothing?).
