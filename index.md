@@ -4,7 +4,7 @@ title: Home
 ---
 # JonahPlusPlus's Development Blog
 
-Here you can find 
+Here you can find posts on some of my work.
 
 <ul>
   {% for post in site.posts %}
