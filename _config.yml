@@ -5,6 +5,8 @@ baseurl: ""
 url: ""
 twitter_username: jekyllrb
 github_username:  jekyll
+favicon: assets/icon.svg
+favicon_type: image/svg+xml
 
 # Build settings
 remote_theme: JonahPlusPlus/dark_plus
