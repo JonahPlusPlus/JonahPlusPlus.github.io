@@ -13,4 +13,4 @@ bevy_atmosphere is a procedural sky plugin for the Bevy game engine. It offers c
 
 The focus for this update was to take the opportunity to revamp the internals, to make it more flexible and simple to use, while also improving the performance. Previous versions of bevy_atmosphere were limited, for instance, offered no support for split-screen apps. The sky shader also ran every frame, which was often redundant when the material was not changing, and had very noticeable color banding.
 
-{% include image.html image="/assets/images/2022-08-20/bevy_atmosphere_splitscreen.png" caption="Figure 2" %}
+{% include image.html image="/assets/images/2022-08-20/bevy_atmosphere_shader_modules.png" caption="Figure 2" %}
