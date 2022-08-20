@@ -29,3 +29,10 @@ The tradeoff is that instead of just rendering the pixels on the screen, you hav
 This trade off is worth it, since you wouldn't expect the material to be updated every frame, but can be updated occasionally, with no perceivable difference.
 Once I get the texture though, I need something to display it on. I was using a sphere to render the sky before, so I considered using equirectangular projection (See Figure 3) to map the texture back to the sphere, but that was convoluted.
 Instead, I decided to move to a skybox, and create a 6:1 cubemap for the 6 faces.
+
+{% include image.html image='/assets/images/2022-08-20/6x1mesh.png' caption='Figure 4: a representation of the 6x1 mesh' %}
+
+To render the texture, I tried using a custom mesh, that was 6 quads in a row (see Figure 4).
+I would then get a camera to render the shaded mesh to a texture, which could then be displayed on the skybox mesh.
+This proved convoluted; it required a bunch of setup and guarantees and in order to render it only when the material changed required a special render pipeline for this one object.
+I decided to look for another solution.
