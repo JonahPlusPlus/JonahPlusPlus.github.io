@@ -8,3 +8,4 @@ Hey, Jonah here. With the release of bevy_atmosphere 0.4 (for bevy 0.8), I thoug
 
 <!--more-->
 
+bevy_atmosphere is a procedural sky plugin for the Bevy game engine. It offers complete customization of the sky simulation, allowing for any number of effects (see Figure 1).
