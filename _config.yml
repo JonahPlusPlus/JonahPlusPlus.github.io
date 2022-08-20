@@ -1,0 +1,13 @@
+title: JonahPlusPlus
+description: >- 
+  JonahPlusPlus' Development Blog
+baseurl: ""
+url: ""
+twitter_username: jekyllrb
+github_username:  jekyll
+
+# Build settings
+remote_theme: JonahPlusPlus/dark_plus
+plugins:
+  - jekyll-feed
+
