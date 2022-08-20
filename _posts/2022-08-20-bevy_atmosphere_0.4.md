@@ -80,3 +80,13 @@ I tried to use a hash function to adjust the light rays for individual pixels, b
 The [Bevy Discord server](https://discord.gg/bevy) was so helpful, not just for this part, but for so many of the problems I had.
 Discord user Griffin pointed me to a dither function that solved this issue instantly (see Figure 8).
 Big thanks to them for their help.
+
+{% include image.html image='/assets/images/2022-08-20/square-ratio.png' caption='Figure 9: a square inscribed in a circle inscribed in a square (only top right corners shown)' %}
+
+So, after about a week of work on this, most of the changes I wanted were done.
+I just needed to figure out how to display the sky behind everything else.
+Before, it was a sphere doing a depth test.
+But that had issues; it would clip and so a radius value was needed to make it really large so that clipping wasn't noticeable.
+I couldn't find a better solution that didn't use some sort of technique specific to another engine or graphics library.
+But instead of having an adjustable value, I changed it so the skybox geometry generated used the far field of the camera it was attached to, so the skybox will always be the farthest it can be (except in the case the user changes the far field of the camera without updating the mesh), which is `√(1/2) * far` (see Figure 9).
+It now uses an unlit `StandardMaterial` instead of a custom material with a depth test, which was for the most part redundant.
