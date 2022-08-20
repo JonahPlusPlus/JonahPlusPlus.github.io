@@ -60,3 +60,14 @@ I could turn off texture filtering, but I would have to increase the resolution,
 I attempted to create a margin, where there are extra pixels to be filled in with the surrounding, getting rid of texture bleed entirely, but that proved difficult to do with a shader without another pass, and the second pass would be so small it might hurt performance.
 Rather, I just shrunk the UVs of the skybox mesh by 1px (later changed this…).
 Nobody would miss a few similar pixels at the edges, but everyone would notice some off-color pixels.
+
+{% include image.html image='/assets/images/2022-08-20/radeon-gpu-profiler.png' caption='Figure 7: profiling in Radeon GPU Profiler' %}
+
+During this, I had a bit of wild goose chase trying to make the resolution dynamic.
+There are a few things one should know about benchmarking Bevy games.
+First, FPS isn't a good measurement of performance, as the FPS will increase and decrease depending on what's happening in the scene.
+Disabling VSync is also a bad idea, since the unthrottled FPS can cause input lag.
+So it's better to use an external profiler, like in Figure 7, that can measure the duration of events and not just frame presentation.
+I got these things wrong, and led to me making a bunch of bad conclusions.
+For instance, I thought that changing the resolution from anything other than 512px would cause input lag, but that was me disabling VSync.
+However, using too small or too large textures did cause the event duration to increase, making 512px the optimal resolution of my machine. I later found a solution to make dynamic resolution possible, but I considered baking the resolution into the plugin.
