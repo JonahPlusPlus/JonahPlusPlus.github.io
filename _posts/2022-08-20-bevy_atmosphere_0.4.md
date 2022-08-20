@@ -71,3 +71,12 @@ So it's better to use an external profiler, like in Figure 7, that can measure t
 I got these things wrong, and led to me making a bunch of bad conclusions.
 For instance, I thought that changing the resolution from anything other than 512px would cause input lag, but that was me disabling VSync.
 However, using too small or too large textures did cause the event duration to increase, making 512px the optimal resolution of my machine. I later found a solution to make dynamic resolution possible, but I considered baking the resolution into the plugin.
+
+{% include image.html image='/assets/images/2022-08-20/banding_vs_dithering.png' caption='Figure 8: banding vs dithering' %}
+
+I now wanted to fix the color banding issue.
+I knew I had to arrange/alter the pixels in some way to smooth out the colors, but wasn't sure how.
+I tried to use a hash function to adjust the light rays for individual pixels, but that created a cross hatch pattern instead.
+The [Bevy Discord server](https://discord.gg/bevy) was so helpful, not just for this part, but for so many of the problems I had.
+Discord user Griffin pointed me to a dither function that solved this issue instantly (see Figure 8).
+Big thanks to them for their help.
