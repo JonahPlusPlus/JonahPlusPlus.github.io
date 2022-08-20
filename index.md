@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: home
 title: Home
 ---
 # JonahPlusPlus's Development Blog
