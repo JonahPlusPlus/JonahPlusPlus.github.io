@@ -90,3 +90,23 @@ But that had issues; it would clip and so a radius value was needed to make it r
 I couldn't find a better solution that didn't use some sort of technique specific to another engine or graphics library.
 But instead of having an adjustable value, I changed it so the skybox geometry generated used the far field of the camera it was attached to, so the skybox will always be the farthest it can be (except in the case the user changes the far field of the camera without updating the mesh), which is `√(1/2) * far` (see Figure 9).
 It now uses an unlit `StandardMaterial` instead of a custom material with a depth test, which was for the most part redundant.
+
+{% include image.html image='/assets/images/2022-08-20/bevy_atmosphere_tracy.png' caption='Figure 10: tracy profiler' %}
+
+So I thought I was done… But then I solved the dynamic resolution problem.
+Instead of using a flat 2D texture, I could use a **cube texture**!
+
+I was a bit new to cube textures, so had avoided them, but they are actually pretty simple: instead of sampling using a 2D UV coordinate, you use a 3D normal to pick a pixel from inside the cube.
+This leads to better filtering, since the layout of faces are known.
+I could get rid of the UVs from my mesh entirely, relying on normals instead. However, while sampling is straight forward, storing to a cube texture isn't.
+There is no way to store to a cube texture in WGSL.
+So, we don't; instead I could create what is called a texture view.
+When writing pipelines, shaders aren't actually given the texture directly, instead, they are given a view of the texture.
+What this means is the skybox material can have a cube view of the texture, while the compute shader can use a 2D array view that has 6 layers.
+It was actually easier to write the shader this way, cause it's not dependent on any mapping from workspace coordinates to normals. However, making the separate texture views was a bit more difficult.
+When updating the size of a texture, it's actually destroying the old texture and replacing it. In order for the views to be valid, the systems must be ordered so the new views are created after the texture. 
+
+This took a bit of debugging, which tracy, a real-time profiler, was most helpful for (See Figure 10).
+The debugging needed for this side feature was actually the most time consuming part of this update.
+It turns out I had a problem where the compute shader could run before the texture was ever updated, so when it was recreated, the sky appeared pitch black.
+Once I found this, it was just a matter of synchronizing both processes using events.
