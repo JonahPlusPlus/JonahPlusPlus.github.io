@@ -43,7 +43,20 @@ I thought about it and landed on **compute shaders**.
 With a compute shader, there aren't any cameras or meshes.
 Instead, I can just operate on the texture itself in parallel.
 So I went to work on converting my vertex/fragment shader duo to a compute shader.
+
 Before, my shader was run for every pixel on the screen inside the fragment.
 But now, there isn't this "dynamic resolution", instead, I have to provide a texture with a set size.
-I decided to just go with a (512 * 6)px by 512px texture.
+I decided to just go with a (512 * 6)px by 512px texture (for now).
 To render each pixel, I could use compute workgroups and just set the number to the resolution divided by the workgroup size (number: (X: 512/8, Y: 512/8, Z: 1), size: (8, 8, 1)) and render all 6 faces at once inside a work instance by using the instance ID + offset as the pixel location (note: while writing this, I realized that I could instead use the Z component to control the face and run (512/8, 512/8, 6), making the shader even more parallel! But it only sped it up by ~10μs… Better than nothing?).
+
+{% include image.html image='/assets/images/2022-08-20/texture-bleed.png' caption='Figure 6: visible texture bleed in the corners as night falls in my "cycle" example' %}
+
+So I finally got the compute shader working and mapped it the skybox!
+It was working, but had one minor issue that I was kinda expecting: texture bleed (See figure 6).
+To make textures look nicer, they typically are filtered when sampled. 
+his means that the pixel you sample is mixed with surrounding pixels, to make the texture not look so pixelated when zoomed in.
+However, the skybox texture isn't seamless, so pixels from other faces bleed into each other near the edges.
+I could turn off texture filtering, but I would have to increase the resolution, which isn't desirable.
+I attempted to create a margin, where there are extra pixels to be filled in with the surrounding, getting rid of texture bleed entirely, but that proved difficult to do with a shader without another pass, and the second pass would be so small it might hurt performance.
+Rather, I just shrunk the UVs of the skybox mesh by 1px (later changed this…).
+Nobody would miss a few similar pixels at the edges, but everyone would notice some off-color pixels.
