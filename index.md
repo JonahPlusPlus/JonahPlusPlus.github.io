@@ -6,6 +6,8 @@ title: Home
 
 Here you can find posts on some of my work.
 
+{% include heading.html heading="Posts" %}
+
 <ul>
   {% for post in site.posts %}
     <li class="post_preview">
