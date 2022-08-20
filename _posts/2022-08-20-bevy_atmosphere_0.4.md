@@ -1,6 +1,6 @@
 ---
-layout: post
 title:  "bevy_atmosphere 0.4"
+layout: post
 date:   2022-08-20 14:13:41 -0400
 excerpt_seperator: <!--more-->
 image:  "/assets/images/2022-08-20/bevy_atmosphere_splitscreen.png"
