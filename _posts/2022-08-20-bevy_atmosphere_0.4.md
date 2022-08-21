@@ -139,3 +139,7 @@ fn setup(mut commands: Commands){
         // None means that it doesn't insert a render layer component
 }
 ```
+* To change the parameters, you would add/update an Atmosphere resource with custom values.
+* The plugin doesn't just pick the first camera, but can be used on select cameras using the AtmosphereCamera component, which holds an optional render layer for the spawned skybox to be on.
+* The plugin will automatically create skyboxes for atmosphere cameras during the ATMOSPHERE_INIT startup stage, which can be disabled by turning off the "automatic" feature.
+* Created skyboxes now have the AtmosphereSkyBox component. Only skyboxes with the component and that have a parent with AtmosphereCamera will have their rotation corrected.
