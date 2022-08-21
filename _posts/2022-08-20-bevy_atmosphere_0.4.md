@@ -78,7 +78,7 @@ I now wanted to fix the color banding issue.
 I knew I had to arrange/alter the pixels in some way to smooth out the colors, but wasn't sure how.
 I tried to use a hash function to adjust the light rays for individual pixels, but that created a cross hatch pattern instead.
 The [Bevy Discord server](https://discord.gg/bevy) was so helpful, not just for this part, but for so many of the problems I had.
-Discord user Griffin pointed me to a dither function that solved this issue instantly (see Figure 8).
+Discord user `Griffin` pointed me to a dither function that solved this issue instantly (see Figure 8).
 Big thanks to them for their help.
 
 {% include image.html image='/assets/images/2022-08-20/square-ratio.png' caption='Figure 9: a square inscribed in a circle inscribed in a square (only top right corners shown)' %}
@@ -113,6 +113,9 @@ Once I found this, it was just a matter of synchronizing both processes using ev
 
 So I wrapped it all up, wrote the documentation and examples, and now it's published!
 Also, the project is now dual-licensed under MIT and Apache-2.0 (big thanks to all previous contributors for their work and for agreeing to the re-licensing)!
+
+I had a ton of help from the Discord server.
+Big thanks to `robswain`, `Griffin`, `StarToaster`, and `cwfitzgerald`!
 
 {% include heading.html heading="Change Log" %}
 
