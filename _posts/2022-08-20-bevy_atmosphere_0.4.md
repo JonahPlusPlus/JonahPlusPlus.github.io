@@ -100,7 +100,7 @@ I was a bit new to cube textures, so had avoided them, but they are actually pre
 This leads to better filtering, since the layout of faces are known.
 I could get rid of the UVs from my mesh entirely, relying on normals instead. However, while sampling is straight forward, storing to a cube texture isn't.
 There is no way to store to a cube texture in WGSL.
-So, we don't; instead I could create what is called a texture view.
+So, we don't; instead I could create what is called a **texture view**.
 When writing pipelines, shaders aren't actually given the texture directly, instead, they are given a view of the texture.
 What this means is the skybox material can have a cube view of the texture, while the compute shader can use a 2D array view that has 6 layers.
 It was actually easier to write the shader this way, cause it's not dependent on any mapping from workspace coordinates to normals. However, making the separate texture views was a bit more difficult.
@@ -110,3 +110,32 @@ This took a bit of debugging, which tracy, a real-time profiler, was most helpfu
 The debugging needed for this side feature was actually the most time consuming part of this update.
 It turns out I had a problem where the compute shader could run before the texture was ever updated, so when it was recreated, the sky appeared pitch black.
 Once I found this, it was just a matter of synchronizing both processes using events.
+
+So I wrapped it all up, wrote the documentation and examples, and now it's published!
+Also, the project is now dual-licensed under MIT and Apache-2.0 (big thanks to all previous contributors for their work and for agreeing to the re-licensing)!
+
+{% include heading.html heading="Change Log" %}
+
+{% include image.html image='/assets/images/2022-08-20/basic-example.png' caption='Figure 11: the "basic" example' %}
+
+The following is now the simplest way to use bevy_atmosphere, taken from the "basic" example (see Figure 11):
+
+```rust
+use bevy::prelude::*;
+use bevy_atmosphere::prelude::*;
+
+fn main() {
+    App::new()
+        .add_plugins(DefaultPlugins)
+        .add_plugin(AtmospherePlugin::default())
+        .add_startup_system(setup)
+        .run();
+}
+
+fn setup(mut commands: Commands){
+    commands
+        .spawn_bundle(Camera3dBundle::default())
+        .insert(AtmosphereCamera(None));
+        // None means that it doesn't insert a render layer component
+}
+```
