@@ -1,0 +1,4 @@
+{% assign heading=include.heading %}
+<h2 id="{{ heading | slugify }}" class="heading">
+    <a href="#{{ heading | slugify }}"># {{ heading }} </a>
+</h2>

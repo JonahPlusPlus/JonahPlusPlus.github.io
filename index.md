@@ -2,7 +2,7 @@
 layout: page
 title: Home
 ---
-# JonahPlusPlus's Development Blog
+<h1 id="title">JonahPlusPlus's Development Blog</h1>
 
 Here you can find posts on some of my work.
 

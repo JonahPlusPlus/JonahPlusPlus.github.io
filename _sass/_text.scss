@@ -1,0 +1,16 @@
+#title {
+	font-size: calc(min(calc(4vw + 8px), 3em));
+	line-height: 1.5em;
+	text-align: center;
+	margin: 0.5em 0;
+	text-decoration: underline;
+}
+
+a {
+    color: $alt_text;
+    text-decoration: none;
+    font-weight: bold;
+    &:hover {
+        text-decoration: underline;
+    }
+}

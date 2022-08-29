@@ -1,0 +1,36 @@
+---
+---
+
+:root {
+	--normal-font: 'JetBrains Mono', system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+	--code-font: 'JetBrains Mono', ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
+	--padding: 1em;
+}
+
+@font-face {
+    font-family: 'JetBrains Mono';
+    font-style: normal;
+    font-weight: 400;
+    src: url("/assets/fonts/JetBrainsMono.ttf");
+}
+
+@font-face {
+    font-family: 'JetBrains Mono';
+    font-style: italic;
+    font-weight: 400;
+    src: url("/assets/fonts/JetBrainsMono-Italic.ttf");
+}
+
+$back: rgb(20, 20, 20);
+$fore: rgb(30, 30, 30);
+$sect: rgb(40, 40, 40);
+
+$text: rgb(251, 251, 254);
+$alt_text: rgb(150, 150, 153);
+
+$radius: 10px;
+
+@import 'layout';
+@import 'text';
+@import 'image';
+@import 'code';

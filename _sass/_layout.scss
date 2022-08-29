@@ -1,0 +1,60 @@
+html {
+	background-color: $back;
+	color: $text;
+
+	scrollbar-color: $sect $fore;
+	scrollbar-width: thin;
+
+	&::-webkit-scrollbar{
+		width: 8px;
+	}
+
+	&::-webkit-scrollbar-track {
+		background: $fore;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background: $sect;
+	}
+}
+
+header {
+	background-color: $fore;
+}
+
+article {
+	background-color: $fore;
+	border-radius: $radius;
+}
+
+footer {
+	background-color: $fore;
+}
+
+#github_link {
+	img {
+		width: auto;
+		height: 2em;
+		vertical-align: -25%;
+	}
+	padding: 8px;
+	border-radius: $radius;
+	&:hover {
+		background-color: $sect;
+	}
+}
+
+#home_link {
+	line-height: 3em;
+	img {
+		width: auto;
+		height: 2em;
+		vertical-align: -25%;
+	}
+}
+
+.post_preview {
+	background-color: $sect;
+	border-radius: $radius;
+	padding: var(--padding);
+}

@@ -1,15 +1,13 @@
 title: JonahPlusPlus
 description: >- 
-  JonahPlusPlus' Development Blog
+  JonahPlusPlus's Development Blog
+url: jonahplusplus.dev
 baseurl: ""
-url: ""
-twitter_username: jekyllrb
-github_username:  jekyll
-favicon: assets/icon.svg
+twitter_username: 
+github_username: JonahPlusPlus
+favicon: /assets/images/common/monogram-128.png
 favicon_type: image/svg+xml
 
-# Build settings
-remote_theme: JonahPlusPlus/dark_plus
 plugins:
   - jekyll-feed
 
