@@ -7,7 +7,7 @@ image:  '/assets/images/2022-08-20/bevy_atmosphere_splitscreen.png'
 caption: 'Figure 1: bevy_atmosphere 0.4 "splitscreen" example'
 ---
 
-Hey, Jonah here. With the release of [bevy_atmosphere 0.4](https://crates.io/crates/bevy_atmosphere) (for bevy 0.8), I thought I would take the time to write a short article about the experience and technical details. Source code can be found at [JonahPlusPlus/bevy_atmosphere]("https://github.com/JonahPlusPlus/bevy_atmosphere").
+Hey, Jonah here. With the release of [bevy_atmosphere 0.4](https://crates.io/crates/bevy_atmosphere) (for bevy 0.8), I thought I would take the time to write a short article about the experience and technical details. Source code can be found at [JonahPlusPlus/bevy_atmosphere](https://github.com/JonahPlusPlus/bevy_atmosphere).
 <!--more-->
 
 bevy_atmosphere is a procedural sky plugin for the Bevy game engine. It offers complete customization of the sky simulation, allowing for any number of effects (see Figure 1).
