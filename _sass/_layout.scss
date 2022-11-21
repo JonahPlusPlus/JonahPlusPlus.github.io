@@ -31,6 +31,22 @@ footer {
 	background-color: $fore;
 }
 
+table {
+	background-color: $sect;
+	border-radius: $radius;
+	text-align: center; 
+	border-collapse: collapse;
+	width: 100%;
+	max-width: 600px;
+	margin: 0 auto;
+	tr{
+		padding: 0.1em;
+		&:nth-child(even) {
+			background-color: rgb(50, 50, 50);
+		}
+	}
+}
+
 #github_link {
 	img {
 		width: auto;
@@ -51,6 +67,10 @@ footer {
 		height: 2em;
 		vertical-align: -25%;
 	}
+}
+
+#about_link {
+	line-height: 3em;
 }
 
 .post_preview {
