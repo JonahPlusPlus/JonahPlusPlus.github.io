@@ -61,7 +61,6 @@ table {
 }
 
 #home_link {
-	line-height: 3em;
 	img {
 		width: auto;
 		height: 2em;
@@ -69,8 +68,11 @@ table {
 	}
 }
 
-#about_link {
-	line-height: 3em;
+header > z-col > z-row {
+	height: 3em;
+	& > a {
+		line-height: 3em;
+	}
 }
 
 .post_preview {
