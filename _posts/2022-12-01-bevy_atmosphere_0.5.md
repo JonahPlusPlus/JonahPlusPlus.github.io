@@ -104,7 +104,7 @@ A big thanks to the Bevy discord, which is always so friendly and helpful.
 
 You can find the source code on [GitHub](https://github.com/JonahPlusPlus/bevy_atmosphere).
 
-# 0.5 Change Log
+{% include heading.html heading="0.5 Change Log" %}
 
 - Removed the `Atmosphere` resource in favor of the `Nishita` model.
 - Added the `AtmosphereModel` resource, which holds an `Atmospheric` model.
