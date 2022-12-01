@@ -3,6 +3,12 @@
     border-radius: $radius;
 }
 
+code.language-plaintext.highlighter-rouge {
+    background-color: $sect;
+    border-radius: $radius;
+    padding: 2px 5px;
+}
+
 .highlight .hll { background-color: $sect; }
 .highlight .c { color: #75715e } /* Comment */
 .highlight .err { color: #960050; background-color: #1e0010 } /* Error */
