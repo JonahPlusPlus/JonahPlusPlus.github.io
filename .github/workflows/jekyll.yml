@@ -38,7 +38,6 @@ jobs:
       - name: Turn off LFS
         run: >-
           git lfs uninstall;
-          rm -Rf .git;
           rm .gitattributes;
       - name: Setup Ruby
         uses: ruby/setup-ruby@0a29871fe2b0200a17a4497bae54fe5df0d973aa # v1.115.3
