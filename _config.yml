@@ -11,3 +11,7 @@ favicon_type: image/svg+xml
 plugins:
   - jekyll-feed
 
+collections:
+  classes:
+    output: true
+    permalink: /:collection/:name
