@@ -1,0 +1,33 @@
+name: GitHub Pages Build
+
+on:
+  push:
+    branches:
+      - main # Set a branch to deploy
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: 🛎️ Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 # Fetch all history for .GitInfo and .Lastmod
+          lfs: true # Fetch large files
+
+      - name: ❌ Turn off LFS
+        run: >-
+          git lfs uninstall;
+          rm -Rf .git;
+          rm .gitattributes;
+      - name: 🚀 Deploy to `gh-pages` branch
+        uses: peaceiris/actions-gh-pages@v3.9.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./
+          publish_branch: gh-pages
+          user_name: "github-actions[bot]"
+          user_email: "github-actions[bot]@users.noreply.github.com"
