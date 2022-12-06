@@ -10,7 +10,7 @@ title: Portfolio
 {% for class in site.classes %}
     <a href="{{ class.url }}" class="card">
         <h3>{{ class.title }}</h3>
-        <p>{{ class.excerpt | strip_html }}</p>
+        <p>{{ class.excerpt | strip_html }}..</p>
     </a>
 {% endfor %}
 </div>

@@ -10,7 +10,7 @@ title: Blog
 {% for post in site.posts %}
     <a href="{{ post.url }}" class="card">
         <h3>{{ post.title }}</h3>
-        <p>{{ post.excerpt | strip_html }}</p>
+        <p>{{ post.excerpt | strip_html }}..</p>
     </a>
 {% endfor %}
 </div>
