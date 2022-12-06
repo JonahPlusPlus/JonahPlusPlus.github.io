@@ -15,10 +15,10 @@ My favorite programming language is 🦀Rust.
 <div>
     <a href="/blog" class="card">
         <h3>Blog Posts</h3>
-        <p>Technical articles and updates</p>
+        <p>Technical articles and updates.</p>
     </a>
     <a href="/portfolio" class="card">
         <h3>Portfolio</h3>
-        <p>Work I have done in my free time and for class</p>
+        <p>Work I have done in my free time and for class.</p>
     </a>  
 </div>
