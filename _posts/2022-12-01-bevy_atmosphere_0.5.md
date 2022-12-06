@@ -74,7 +74,7 @@ With the basic parts of this system in place, I decided to test it out by creati
 Nishita was the model used by the old `Atmosphere` resource.
 `Gradient` is a new model, that provides a simple gradient of three colors, the ground, horizon, and sky (see Figure 1).
 In a future update, I want to make it more powerful by supporting "unlimited" colors and allow users to choose the method of interpolation.
-However, Bevy's `AsBindGroup` doesn'tt support storage buffers, so I just have to wait till then.
+However, Bevy's `AsBindGroup` doesn't support storage buffers, so I just have to wait till then.
 
 {% include image.html image='/assets/images/2022-12-01/gradient-formula.png' caption='Figure 2: formula for a linear gradient of three colors' %}
 
