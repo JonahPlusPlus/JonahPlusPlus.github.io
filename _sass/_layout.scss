@@ -75,11 +75,18 @@ header > z-col > z-row {
 	}
 }
 
-.post_preview {
+.card {
+	display: block;
 	background-color: $sect;
 	border-radius: $radius;
 	padding: var(--padding);
 	margin-bottom: 1em;
+	& > h3 {
+		color: $text;
+	}
+	&:hover {
+		box-shadow: 0 0 1px 1px white;
+	}
 }
 
 z-frame {

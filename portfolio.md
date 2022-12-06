@@ -4,11 +4,13 @@ title: Portfolio
 ---
 <h1 id="title">Portfolio</h1>
 
+{% include heading.html heading="Classwork" %}
+
 <div>
 {% for class in site.classes %}
-    <div class="post_preview">
-        <a href="{{ class.url }}"><h3>{{ class.title }}</h3></a>
-        {{ class.excerpt }}
-    </div>
+    <a href="{{ class.url }}" class="card">
+        <h3>{{ class.title }}</h3>
+        <p>{{ class.excerpt }}</p>
+    </a>
 {% endfor %}
 </div>
