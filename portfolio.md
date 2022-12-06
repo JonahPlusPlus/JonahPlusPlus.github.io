@@ -4,7 +4,7 @@ title: Portfolio
 ---
 <h1 id="title">Portfolio</h1>
 
-{% include heading.html heading="Classwork" %}
+{% include heading.html heading="Classes" %}
 
 <div>
 {% for class in site.classes %}
